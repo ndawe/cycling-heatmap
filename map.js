@@ -7,17 +7,13 @@ mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
 wholink = '<a href="http://stamen.com">Stamen Design</a>';
 L.tileLayer(
 	'http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg', {
-	attribution: '&copy; '+mapLink+' Contributors & '+wholink,
-	minZoom: 11,
-	maxZoom: 16,
+		attribution: '&copy; '+mapLink+' Contributors & '+wholink,
+		minZoom: 11,
+		maxZoom: 16,
 	}).addTo(map);
 
-var heatmap = new L.webGLHeatmap({
-	size: 40,
-	units: 'px',
-	opacity: 0.5,
-	alphaRange: 0.001
-});
-
-heatmap.setData(coords);
-map.addLayer(heatmap);
+var heat = L.heatLayer(
+	coords, {
+		radius: 15,
+		minOpacity: 0.5
+	}).addTo(map);
