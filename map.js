@@ -8,7 +8,8 @@ wholink = '<a href="http://stamen.com">Stamen Design</a>';
 L.tileLayer(
 	'http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg', {
 	attribution: '&copy; '+mapLink+' Contributors & '+wholink,
-	maxZoom: 17,
+	minZoom: 11,
+	maxZoom: 16,
 	}).addTo(map);
 
 var heatmap = new L.webGLHeatmap({
